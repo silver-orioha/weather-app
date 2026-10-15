@@ -33,6 +33,34 @@ function App() {
 }
 
 
+async function handleSelectLocation(place) {
+  try {
+    setLoading(true);
+    setError("");
+    setSuggestions([]);
+
+    const weatherData = await getWeather(
+      place.latitude,
+      place.longitude
+    );
+
+    setLocation(place);
+    setWeather(weatherData);
+
+    return true;
+  } catch (error) {
+    console.error(error);
+    setError("Unable to fetch weather for this location.");
+    setWeather(null);
+    setLocation(null);
+
+    return false;
+  } finally {
+    setLoading(false);
+  }
+}
+
+
   async function handleSearch(city) {
     try {
       setLoading(true);
@@ -71,6 +99,7 @@ function App() {
       <main className="weather-container">
         <SearchBar
           onSearch={handleSearch}
+          onSelectLocation={handleSelectLocation}
           onSuggestions={handleSuggestions}
           suggestions={suggestions}
         />

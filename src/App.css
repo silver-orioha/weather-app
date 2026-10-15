@@ -167,7 +167,9 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
-
+.suggestions-list li.active-suggestion {
+  background: #eef4f7;
+}
 
 
 @media (max-width: 768px) {
