@@ -29,11 +29,11 @@ body {
   font-size: 24px;
 }
 
-
 .search-container {
   display: flex;
   width: 100%;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .search-container input {
@@ -53,6 +53,29 @@ body {
   font-size: 20px;
 }
 
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 55px;
+  z-index: 10;
+  list-style: none;
+  background: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestions-list li:hover {
+  background: #eef4f7;
+}
 
 .current-weather {
   background: white;
@@ -75,7 +98,6 @@ body {
 .condition {
   font-size: 18px;
 }
-
 
 .weather-details {
   display: grid;
@@ -110,11 +132,41 @@ body {
   gap: 15px;
 }
 
+.forecast-temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.forecast-temperature h3 {
+  font-size: 22px;
+}
+
+.forecast-temperature span {
+  color: #777;
+  font-size: 18px;
+}
+
 .weather-icon {
   font-size: 70px;
   margin: 15px 0;
 }
 
+.status-message {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.error-message {
+  background: #ffe5e5;
+  color: #d32f2f;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 
 
