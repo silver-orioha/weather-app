@@ -1,6 +1,6 @@
 export async function searchLocation(city) {
   const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=5&language=en&format=json`
   );
 
   if (!response.ok) {
@@ -13,7 +13,7 @@ export async function searchLocation(city) {
     throw new Error("Location not found");
   }
 
-  return data.results[0];
+  return data.results;
 }
 
 
